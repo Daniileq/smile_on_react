@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Pagination } from "./pogination";
+import { Pagination } from "./Pagination";
 // import { Data } from "./emogiJson";
 
 export const Main = () => {
@@ -10,23 +10,20 @@ export const Main = () => {
   const [currentPage, setCurrentPage] = useState(1); // для отображения текущей страницы
   const [countCurrentPage, setCountCurrentPage] = useState(12); //отображение колличества элементов которые нам нужно отображать на странице
 
-  const lastEmogiIndex = currentPage * countCurrentPage; // высчитывание последнего индекса
+  const lastEmogiIndex = currentPage * countCurrentPage; // высчитывание последнего индекса.
   const firstElemIndex = lastEmogiIndex - countCurrentPage; // вычисление первого элемента индекс.
-  const currentEmogi = data.slice(firstElemIndex, lastEmogiIndex);
-
+  const currentEmogi = data.slice(firstElemIndex, lastEmogiIndex); //на к
   //Прослушивание события из input
   const handlChange = (event) => setValue(event.target.value);
   const valueArr = value.split(" ");
   const filterSmile = currentEmogi.filter((elem) =>
     elem.keywords.toLowerCase().includes(valueArr)
   );
-
   const getData = async () => {
     let response = await fetch(url);
     let makeJson = await response.json();
     setData(makeJson);
   };
-  console.log(data);
   useEffect(() => {
     getData();
   }, []);
@@ -42,7 +39,7 @@ export const Main = () => {
     </div>
   ));
 
-  const paginate = (pageNamber) => setCurrentPage(pageNamber); //
+  const paginate = (pageNumber) => setCurrentPage(pageNumber); //
   const nextPage = () => setCurrentPage((event) => event + 1); //кнопки переключения по страницам
   const lastPage = () => setCurrentPage((event) => event - 1); //кнопки переключения по страницам
 
@@ -61,16 +58,20 @@ export const Main = () => {
       </header>
       <div className="container">
         <div className="content">{displaySmile}</div>
+
+        <div className="paginatior">
+          <Pagination
+            page={currentPage}
+            datalength={data.length}
+            countCurrentPage={countCurrentPage}
+            paginate={paginate}
+            lastPage={lastPage}
+            nextPage={nextPage}
+          />
+        </div>
       </div>
-      <div>
-        <Pagination
-          datalength={data.length}
-          countCurrentPage={countCurrentPage}
-          paginate={paginate}
-          lastPage={lastPage}
-          nextPage={nextPage}
-        />
-      </div>
+
+      <div></div>
     </>
   );
 };
