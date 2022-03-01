@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
 import { Pagination } from "./Pagination";
-// import { Data } from "./emogiJson";
 
 export const Main = () => {
-  const url = " https://emoji.ymatuhin.workers.dev/";
+  const url = "https://emoji.ymatuhin.workers.dev/";
   const [data, setData] = useState([]);
   const [emogiFiltred, setEmogiFiltred] = useState([]);
   const [value, setValue] = useState("");
-  // const [loading, setLoading] = useState(false); // ожидание   загрузки
   const [currentPage, setCurrentPage] = useState(1); // для oтображения текущей страницы
   const [countCurrentPage, setCountCurrentPage] = useState(12); //отображение колличества элементов которые нам нужно отображать на странице
 
   //Прослушивание события из input
   const handlChange = (event) => setValue(event.target.value);
   //Фильтрация по двум ключевым словам и более
-  const filterSmile = (value) => 
+  const filterSmile = (value) => {
     let newData = data;
     value
       .split(" ")
@@ -56,7 +54,7 @@ export const Main = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber); //
   const nextPage = () => setCurrentPage((event) => event + 1); //кнопки переключения по страницам
-  const pref = () => setCurrentPage((event) => event - 1); //кнопки переключения по страницам
+  const prev = () => setCurrentPage((event) => event - 1); //кнопки переключения по страницам
 
   return (
     <>
@@ -82,10 +80,10 @@ export const Main = () => {
         <div className="paginatior">
           <Pagination
             page={currentPage}
-            datalength={emogiFiltred.length}
-            countCurrentPage={countCurrentPage}
+            datalength={filterSmile.length}
+            countCurrentPage={currentEmogi}
             paginate={paginate}
-            pref={pref}
+            prev={prev}
             nextPage={nextPage}
           />
         </div>

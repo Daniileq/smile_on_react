@@ -4,9 +4,8 @@ export function Pagination({
   countCurrentPage,
   paginate,
   nextPage,
-  pref,
-} 
-) {
+  prev,
+}) {
   const pageNumbers = [];
 
   const pageCount = Math.ceil(datalength / countCurrentPage);
@@ -28,7 +27,7 @@ export function Pagination({
   }
   return (
     <div className="pagination ">
-      <button className="btn btn-primary" onClick={pref}>
+      <button className="btn btn-primary" onClick={prev}>
         Prev
       </button>
       {pageNumbers.map((number) => (
