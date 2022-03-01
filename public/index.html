@@ -58,7 +58,6 @@
         border: 1px solid #ced4da;
         bottom: 0px;
         bottom: -32px;
-
       }
       input::placeholder {
         position: absolute;
@@ -104,6 +103,69 @@
       }
       .pagination {
         margin-top: 50px;
+      }
+
+      @media (max-width: 425px) {
+        .header__title {
+        font-size: 52px;
+        padding-top: 44px;
+        margin-bottom: 12px;
+      }
+        .input {
+          position: absolute;
+          width: 320px;
+          height: 42px;
+          /* margin-left: 20%; */
+          left: 50%;
+          transform: translateX(-50%);
+          border: 1px solid #ced4da;
+          bottom: 0px;
+          bottom: -20px;
+        }
+        input::placeholder {
+          position: absolute;
+          color: #abb5be;
+          font-size: 16px;
+          margin-left: 12px;
+          margin-top: 8px;
+          margin-bottom: 8px;
+          border-radius: 4px;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .header__title {
+        font-size: 52px;
+        padding-top: 44px;
+        margin-bottom: 12px;
+      }
+        .elem-card {
+          padding-top: 29px;
+          background-color: white;
+          text-align: center;
+          width: 300px;
+          height: 184px;
+        }
+        .input {
+          position: absolute;
+          width: 300px;
+          height: 42px;
+          /* margin-left: 20%; */
+          left: 50%;
+          transform: translateX(-50%);
+          border: 1px solid #ced4da;
+          bottom: 0px;
+          bottom: -20px;
+        }
+        input::placeholder {
+          position: absolute;
+          color: #abb5be;
+          font-size: 16px;
+          margin-left: 12px;
+          margin-top: 8px;
+          margin-bottom: 8px;
+          border-radius: 4px;
+        }
       }
     </style>
   </head>

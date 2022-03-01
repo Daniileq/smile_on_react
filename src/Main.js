@@ -52,10 +52,9 @@ export const Main = () => {
     </div>
   ));
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber); //
+  const paginate = (pageNumber) => setCurrentPage(pageNumber); 
   const nextPage = () => setCurrentPage((event) => event + 1); //кнопки переключения по страницам
   const prev = () => setCurrentPage((event) => event - 1); //кнопки переключения по страницам
-
   return (
     <>
       <header className="header">
