@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
+import { Main } from "./Main.js";
 
 const root = document.querySelector("#root");
 
 ReactDOM.render(
-  <App />,
+  <Main />,
 
   root
 );

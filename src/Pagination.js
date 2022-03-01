@@ -4,20 +4,15 @@ export function Pagination({
   countCurrentPage,
   paginate,
   nextPage,
-  lastPage,
-}) {
+  pref,
+} 
+) {
   const pageNumbers = [];
 
-  // const firstNamber
-  // const lastNamber
-
   const pageCount = Math.ceil(datalength / countCurrentPage);
-  const plenty = pageNumbers.map((elem) => elem);
-  console.log(page);
-  const closetoStart = page < 3; //отображение крайних трех.
+  const closetoStart = page < 3; //отображение крайних 3;
   const closetoFinish = page > pageCount - 2; //отображение с последних 2;
-  console.log(closetoStart);
-  console.log(closetoFinish);
+
   const firstNumber = closetoStart
     ? 1
     : closetoFinish
@@ -28,15 +23,12 @@ export function Pagination({
     : closetoFinish
     ? pageCount - 4
     : page + 2;
-  console.log(firstNumber);
-  console.log(lastNumber);
   for (let i = firstNumber; i <= lastNumber; i++) {
     pageNumbers.push(i);
   }
-
   return (
     <div className="pagination ">
-      <button className="btn btn-primary" onClick={lastPage}>
+      <button className="btn btn-primary" onClick={pref}>
         Prev
       </button>
       {pageNumbers.map((number) => (
